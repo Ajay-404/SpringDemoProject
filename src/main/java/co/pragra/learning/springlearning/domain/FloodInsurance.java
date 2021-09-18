@@ -6,7 +6,6 @@ import lombok.Data;
 @Builder
 @Data
 public class FloodInsurance implements IInsurance{
-
     private final String type;
     private final double price;
 
