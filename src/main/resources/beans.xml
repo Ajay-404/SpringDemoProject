@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="auto" name="autoInsurance" class="co.pragra.learning.springlearning.domain.AutoInsurance">
+        <constructor-arg name="type" value="HOME"></constructor-arg>
+        <constructor-arg name="price" value="80.0"></constructor-arg>
+    </bean>
+
+    <bean id="auto2" name="homeInsurance" class="co.pragra.learning.springlearning.domain.HomeInsurance">
+        <constructor-arg name="type" value="HOME"></constructor-arg>
+        <constructor-arg name="price" value="80.0"></constructor-arg>
+    </bean>
+
+    <bean id="flood" name="floodInsurance" class="co.pragra.learning.springlearning.domain.FloodInsurance">
+        <constructor-arg name="type" value="HOME"></constructor-arg>
+        <constructor-arg name="price" value="80.0"></constructor-arg>
+    </bean>
+
+    <bean name="quoteGenerator" class="co.pragra.learning.springlearning.business.QuoteGenerator">
+        <constructor-arg name="insurances">
+            <list value-type="co.pragra.learning.springlearning.domain.IInsurance">
+                <ref bean="homeInsurance"></ref>
+                <ref bean="autoInsurance"></ref>
+                <ref bean="floodInsurance"></ref>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
